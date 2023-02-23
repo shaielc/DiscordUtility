@@ -73,5 +73,12 @@ async function checkTempChannel(channelId) {
 client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
     await checkTempChannel(oldState.channelId);
 })
-
+const http = require('http');
+function handleRequest(request, response) {
+    response.end('Some Response at ' + request.url);
+}
+var server = http.createServer(handleRequest);
+server.listen(8083, function() {
+    console.log('Listening...')
+})
 client.login(token);
