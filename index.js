@@ -15,8 +15,8 @@ command = {
             option => option.setName('name').setDescription("Name of the temp channel").setRequired(true)),
 	async execute(interaction) {
         const name =  interaction.options.getString('name');
-        interaction.guild.channels.create({name, type: ChannelType.GuildVoice, });
-		await interaction.reply('Pong!');
+        const channel = await interaction.guild.channels.create({name, type: ChannelType.GuildVoice, });
+		await interaction.reply(`Created temp channel <#${channel.id}>`);
 	},
 }
 
