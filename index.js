@@ -75,7 +75,7 @@ client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
 })
 const http = require('http');
 function handleRequest(request, response) {
-    response.end('Some Response at ' + request.url);
+    response.end("200 OK")
 }
 var server = http.createServer(handleRequest);
 server.listen(8083, function() {
